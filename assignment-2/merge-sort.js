@@ -12,14 +12,27 @@ const sort = (arr1, arr2, arr = [], i = 0, j = 0, k = 0) => {
   const l1 = arr1.length;
   const l2 = arr2.length;
   if (i === l1 && j === l2) return arr;
-  if ((i === l1 && j < l2) || item1 >= item2) {
-    arr[k] = item2;
+  // if one arr reach the last index, then we just copy the rest of other arr to final arr
+  if ((i === l1 && j < l2) || (i < l1 && j === l2)) {
+    // only one while loop execute
+    while (i < l1) {
+      arr[k] = arr1[i];
+      k++;
+      i++;
+    }
+    while (j < l2) {
+      arr[k] = arr2[j];
+      k++;
+      j++;
+    }
+    return arr;
+  }
+  if (item1 >= item2) {
+    arr.push(item2);
     return sort(arr1, arr2, arr, i, j + 1, k + 1);
   }
-  if ((i < l1 && j === l2) || item1 < item2) {
-    arr[k] = item1;
-    return sort(arr1, arr2, arr, i + 1, j, k + 1);
-  }
+  arr.push(item1);
+  return sort(arr1, arr2, arr, i + 1, j, k + 1);
 };
 
 const mergeSort = (arr) => {
