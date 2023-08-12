@@ -20,3 +20,5 @@ Merge sort leverages something called recursion.
 - if not then we divide the array to 2 halves
 - then recursively pass each half as argument into the mergeSort function again
 - then merge 2 sort halves back together
+- using another function to do that functionality
+  - that function can even use recursion to sort instead of loops

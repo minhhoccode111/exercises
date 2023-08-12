@@ -27,6 +27,7 @@ const sort = (arr1, arr2, arr = [], i = 0, j = 0, k = 0) => {
     }
     return arr;
   }
+  // if not then we use recursion to sort 2 arrays and merge to 1 array
   if (item1 >= item2) {
     arr.push(item2);
     return sort(arr1, arr2, arr, i, j + 1, k + 1);
