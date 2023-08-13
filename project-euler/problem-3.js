@@ -34,4 +34,4 @@ console.log(primeFactor(40)); // [2,5]
 console.log(primeFactor(13195)); // [5,7,13,29]
 console.log(primeFactor(600_851_475_143)); //
 
-// I've solved the problem but I must find another way to solved instead of looping through 6 billion elements
+// I've solved the problem but I must find another way to solved instead of looping through 600 billion elements
