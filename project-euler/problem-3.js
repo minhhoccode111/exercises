@@ -60,10 +60,6 @@ const find = (n) => {
   return factor;
 };
 
-console.log(trialDivision(40)); // [2,5]
-console.log(trialDivision(13195)); // [5,7,13,29]
-console.log(trialDivision(600_851_475_143)); // [71,839,1471,6857]
-
 console.log(find(40)); // [2,5]
 console.log(find(13195)); // [5,7,13,29]
 console.log(find(600_851_475_143)); // [71,839,1471,6857]
