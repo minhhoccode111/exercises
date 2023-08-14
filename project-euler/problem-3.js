@@ -7,13 +7,19 @@
 // What is the largest prime factor of the number 600851475143
 
 function trialDivision(n) {
+  // empty arr to store prime numbers
   const factors = [];
 
+  // check if the number can be divided by 2 first then continuously divide by 2 until can't be divided anymore
   while (n % 2 === 0) {
+    // push to factors
     factors.push(2);
+    // keep dividing the number
     n /= 2;
   }
 
+  // than start by 3 and i += 2 each loop (so that we can cut the numbers we have to iterate through by half, we not looping through even number)
+  // when searching for divisors of a number `n`, you only need to check divisibility up to the square root of `n`. This is because if `n` has a divisor larger than its square root, then it must also hae a corresponding smaller  divisor that you've already checked earlier
   for (let i = 3; i <= Math.sqrt(n); i += 2) {
     while (n % i === 0) {
       factors.push(i);
@@ -21,6 +27,7 @@ function trialDivision(n) {
     }
   }
 
+  // if last n is greater than 2 and it's still a prime number so we push in factors
   if (n > 2) {
     factors.push(n);
   }
