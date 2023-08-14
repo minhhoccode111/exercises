@@ -36,8 +36,36 @@ function trialDivision(n) {
   return factors;
 }
 
+const primeFactor = (n, divisor = 3, factors = []) => {
+  if (n === 1) return factors;
+
+  if (!(n % divisor)) {
+    factors.push(divisor);
+    return primeFactor(n / divisor, divisor, factors);
+  }
+
+  return primeFactor(n, divisor + 2, factors);
+};
+
+const find = (n) => {
+  let factor = [];
+
+  while (!(n % 2)) {
+    factor.push(2);
+    n /= 2;
+  }
+
+  factor = [...factor, ...primeFactor(n)];
+
+  return factor;
+};
+
 console.log(trialDivision(40)); // [2,5]
 console.log(trialDivision(13195)); // [5,7,13,29]
-console.log(trialDivision(600_851_475_143)); //
+console.log(trialDivision(600_851_475_143)); // [71,839,1471,6857]
+
+console.log(find(40)); // [2,5]
+console.log(find(13195)); // [5,7,13,29]
+console.log(find(600_851_475_143)); // [71,839,1471,6857]
 
 // I've solved the problem but I must find another way to solved instead of looping through 600 billion elements
