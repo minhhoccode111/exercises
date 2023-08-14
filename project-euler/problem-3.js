@@ -6,32 +6,31 @@
 
 // What is the largest prime factor of the number 600851475143
 
-const createPrimeArr = (n) => {
-  let arr = [];
+function trialDivision(n) {
+  const factors = [];
 
-  for (let i = 2; i <= n; i++) {
-    // if current arr isn't containing any number % i === 0, then we push i to array
-    if (arr.every((item) => i % item)) arr.push(i);
+  while (n % 2 === 0) {
+    factors.push(2);
+    n /= 2;
   }
 
-  return arr;
-};
-
-const primeFactor = (n, index = 0, primeArr = createPrimeArr(n), arr = []) => {
-  if (index === primeArr.length) return arr;
-
-  if (n === 1) return arr;
-
-  if (!(n % primeArr[index])) {
-    if (!arr.includes(primeArr[index])) arr.push(primeArr[index]);
-    return primeFactor(n / primeArr[index], index, primeArr, arr);
+  for (let i = 3; i <= Math.sqrt(n); i += 2) {
+    while (n % i === 0) {
+      factors.push(i);
+      n /= i;
+    }
   }
 
-  return primeFactor(n, index + 1, primeArr, arr);
-};
+  if (n > 2) {
+    factors.push(n);
+  }
 
-console.log(primeFactor(40)); // [2,5]
-console.log(primeFactor(13195)); // [5,7,13,29]
-console.log(primeFactor(600_851_475_143)); //
+  // return factors[factors.length - 1];
+  return factors;
+}
+
+console.log(trialDivision(40)); // [2,5]
+console.log(trialDivision(13195)); // [5,7,13,29]
+console.log(trialDivision(600_851_475_143)); //
 
 // I've solved the problem but I must find another way to solved instead of looping through 600 billion elements
