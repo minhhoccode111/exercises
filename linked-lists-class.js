@@ -75,27 +75,27 @@ class LinkedList {
     return this.size;
   }
 
-  size() {
+  getSize() {
     return this.size;
   }
 
-  head() {
+  getHead() {
     return this.head;
   }
 
-  tail() {
+  getTail() {
     return this.tail;
   }
 
   at(index, current = 0, currentNode = this.head) {
     // undefined if we try to find node out of range
-    if (index > this.size || index < 0) return;
+    if (index === this.size || index < 0) return;
 
     // stop condition of recursion
     if (index === current) return currentNode;
 
     // recursion call
-    return this.at(current + 1, currentNode.getNext());
+    return this.at(index, current + 1, currentNode.getNext());
   }
 
   pop() {
@@ -178,10 +178,27 @@ class LinkedList {
 }
 
 const list = new LinkedList();
+// try to pop something from empty list
+console.log(list.pop()?.getValue()); // undefined
 list.append(1);
 list.append(2);
 list.append(3);
 list.append(4);
 list.append(5);
+console.log(list.toString()); // ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> null
 
-console.log(list.toString());
+list.prepend(6);
+list.prepend(7);
+list.append(8);
+console.log(list.toString()); // ( 7 ) -> ( 6 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( 8 ) -> null
+
+console.log(list.getSize()); // 8
+
+console.log(list.getHead().getValue()); // 7
+
+console.log(list.getTail().getValue()); // 8
+
+console.log(list.at(2).getValue()); // 1
+
+console.log(list.pop()?.getValue()); // 8
+console.log(list.toString()); // ( 7 ) -> ( 6 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> null
