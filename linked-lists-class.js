@@ -58,18 +58,17 @@ class LinkedList {
   }
 
   prepend(value) {
-    // new node
-    const node = Node(value);
     if (this.size === 0) {
+      // new node
+      const node = Node(value);
       this.head = node;
       this.tail = node;
       this.size = 1;
       return 1;
     }
-
-    // then new create node's next property to be current head
-    node.setNext(this.head);
-    // then set node to be head
+    // new node which has next property set to current head
+    const node = Node(value, this.head);
+    // then set node to be new head
     this.head = node;
     this.size++;
     return this.size;
@@ -144,14 +143,13 @@ class LinkedList {
   insertAt(value, index) {
     // handling error, can't insert at head or tail, USE APPEND & PREPEND INSTEAD!
     if (index === 0 || index === this.size) return;
-    // create new node
-    const node = Node(value);
     // get node before index to insert
     const beforeIndex = this.at(index - 1);
     // save current index node
     const currentIndex = beforeIndex.getNext();
+    // create new node
+    const node = Node(value, currentIndex);
     // insert
-    node.setNext(currentIndex);
     beforeIndex.setNext(node);
     // increase list's size
     this.size++;
