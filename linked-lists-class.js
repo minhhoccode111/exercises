@@ -160,12 +160,18 @@ class LinkedList {
   removeAt(index) {
     // handling error but unlike insert, which can insert after last index (or use it like push), we can't remove after last index, so we check if index equal size
     if (index < 0 || index === this.size) return;
-    // get node before index
-    const beforeIndex = this.at(index - 1);
-    const currentIndex = beforeIndex.getNext();
-    const afterIndex = currentIndex.getNext();
-    // remove at index by ignoring node at that index
-    beforeIndex.setNext(afterIndex);
+    let currentIndex;
+    if (index === 0) {
+      currentIndex = this.head;
+      this.head = this.head.getNext();
+    } else {
+      // get node before index
+      const beforeIndex = this.at(index - 1);
+      currentIndex = beforeIndex.getNext();
+      const afterIndex = currentIndex.getNext();
+      // remove at index by ignoring node at that index
+      beforeIndex.setNext(afterIndex);
+    }
     // decrease size
     this.size--;
     // erase reference in currentIndex node
@@ -217,3 +223,9 @@ console.log(list.find(returnInsertRef.getValue())); // 1
 console.log(list.toString()); // ( 7 ) -> ( b ) -> ( 6 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( a ) -> null
 console.log(list.getHead().getValue()); // 7
 console.log(list.getTail().getValue()); // 'a'
+
+const returnRemoveRef = list.removeAt(2);
+console.log(returnRemoveRef.getValue()); // 6
+console.log(list.toString()); // ( 7 ) -> ( b ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( a ) -> null
+list.removeAt(0);
+console.log(list.toString()); // ( b ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( a ) -> null
