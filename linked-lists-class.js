@@ -142,8 +142,8 @@ class LinkedList {
   }
 
   insertAt(value, index) {
-    // handling error
-    if (index < 0 || index > this.size) return;
+    // handling error, can't insert at head or tail, USE APPEND & PREPEND INSTEAD!
+    if (index === 0 || index === this.size) return;
     // create new node
     const node = Node(value);
     // get node before index to insert
@@ -199,6 +199,23 @@ console.log(list.getHead().getValue()); // 7
 console.log(list.getTail().getValue()); // 8
 
 console.log(list.at(2).getValue()); // 1
+console.log(list.at(3).getNext().getValue()); // 3
 
 console.log(list.pop()?.getValue()); // 8
 console.log(list.toString()); // ( 7 ) -> ( 6 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> null
+
+console.log(list.contains(8)); // false
+console.log(list.contains(7)); // true
+list.append('a');
+console.log(list.contains('a')); // true
+console.log(list.toString()); // ( 7 ) -> ( 6 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( a ) -> null
+
+console.log(list.find('a')); // 7
+console.log(list.find(7)); // 0
+console.log(list.find(3)); // 4
+
+const returnInsertRef = list.insertAt('b', 1);
+console.log(list.find(returnInsertRef.getValue())); // 1
+console.log(list.toString()); // ( 7 ) -> ( b ) -> ( 6 ) -> ( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( a ) -> null
+console.log(list.getHead().getValue()); // 7
+console.log(list.getTail().getValue()); // 'a'
