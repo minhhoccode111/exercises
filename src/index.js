@@ -1,7 +1,6 @@
 // console.log('Hello, World!');
 
-const arr = [2, 7, 12, 4, 6, 7, 4, 3, 1, 9, 8, 10];
-const sorted = [1, 2, 3, 4, 6, 7, 8, 9, 10, 12];
+const arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51];
 
 const Node = (data, left = null, right = null) => ({ data, left, right });
 
@@ -55,67 +54,137 @@ const buildTree = (arr) => {
   return recursiveBuildTree(sorted);
 };
 
-class Tree {
-  constructor(arr = null) {
-    this.root = buildTree(arr);
-  }
-  insert(val) {
-    const node = Node(val);
-    if (this.root === null) {
-      this.root = node;
+const Tree = (arr = null) => {
+  let root = buildTree(arr);
+
+  ///// INSERT \\\\\
+  const insert = (val, root = null) => {
+    if (root === null) {
+      root = Node(val);
+      return root;
+    }
+
+    if (root.data > val) {
+      root.left = this.insert(val, root.left);
+    } else {
+      root.right = this.insert(val, root.right);
+    }
+
+    return root;
+  };
+
+  ///// DELETE \\\\\
+  const del = (val, root = null) => {
+    // Base case
+    if (root === null) {
+      return root;
+    }
+
+    // Recursive calls for ancestors of
+    // node to be deleted
+    if (root.data > val) {
+      root.left = del(val, root.left);
+      return root;
+    } else if (root.data < val) {
+      root.right = del(val, root.right);
+      return root;
+    }
+
+    // We reach here when root is the node
+    // to be deleted.
+
+    // If one of the children is empty
+    if (root.left === null) {
+      let temp = root.right;
+      delete root;
+      return temp;
+    } else if (root.right === null) {
+      let temp = root.left;
+      delete root;
+      return temp;
+    }
+
+    // If both children exist
+    else {
+      let succParent = root;
+
+      // Find successor
+      let succ = root.right;
+      while (succ.left !== null) {
+        succParent = succ;
+        succ = succ.left;
+      }
+
+      // Delete successor.  Since successor
+      // is always left child of its parent
+      // we can safely make successor's right
+      // right child as left of its parent.
+      // If there is no succ, then assign
+      // succ.right to succParent.right
+      if (succParent !== root) {
+        succParent.left = succ.right;
+      } else {
+        succParent.right = succ.right;
+      }
+
+      // Copy Successor Data to root
+      root.data = succ.data;
+
+      // Delete Successor and return root
+      delete succ;
+      return root;
+    }
+  };
+
+  ///// FIND \\\\\
+  const find = () => {};
+
+  ///// LEVEL ORDER \\\\\
+  const levelOrder = () => {};
+
+  ///// INORDER \\\\\
+  const inorder = () => {};
+
+  ///// PREORDER \\\\\
+  const preorder = () => {};
+
+  ///// POSTORDER \\\\\
+  const postorder = () => {};
+
+  ///// HEIGHT \\\\\
+  const height = () => {};
+
+  ///// DEPTH \\\\\
+  const depth = () => {};
+
+  ///// IS BALANCED \\\\\
+  const isBalanced = () => {};
+
+  ///// RE-BALANCED \\\\\
+  const reBalance = () => {};
+
+  ///// PRINT TREE \\\\\
+  const prettyPrint = (node = root, prefix = '', isLeft = true) => {
+    if (node === null) {
       return;
     }
-
-    let prev = null;
-    let temp = this.root;
-    while (temp !== null) {
-      prev = temp;
-      if (val < temp.data) {
-        temp = temp.left;
-      } else {
-        temp = temp.right;
-      }
+    if (node.right !== null) {
+      prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
     }
-    if (val < prev.data) {
-      prev.left = node;
-    } else {
-      prev.right = node;
+    console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
+    if (node.left !== null) {
+      prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
     }
-  }
-  delete(val) {
-    if (this.root === null) return;
-    let prev = null;
-    let temp = this.root;
+  };
 
-    while (temp !== null) {
-      prev = temp;
-      if (temp.data === val) {
-        break;
-      } else if (temp.data > val) {
-        temp = temp.left;
-      } else {
-        temp = temp.right;
-      }
-    }
-  }
-}
-
-const prettyPrint = (node, prefix = '', isLeft = true) => {
-  if (node === null) {
-    return;
-  }
-  if (node.right !== null) {
-    prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
-  }
-  console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
-  if (node.left !== null) {
-    prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
-  }
+  ///// RETURN \\\\\
+  return {
+    del,
+    root,
+    insert,
+    prettyPrint,
+  };
 };
 
-const a = new Tree(arr);
-prettyPrint(a.root);
-a.insert(1);
-a.insert(12);
-a.insert(123);
-prettyPrint(a.root);
+const a = Tree(arr);
+a.prettyPrint();
