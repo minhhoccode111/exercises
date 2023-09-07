@@ -55,26 +55,26 @@ const buildTree = (arr) => {
 };
 
 const Tree = (arr = null) => {
-  let root = buildTree(arr);
+  let _root = buildTree(arr);
 
   ///// INSERT \\\\\
-  const insert = (val, root = null) => {
+  const insert = (val, root = _root) => {
     if (root === null) {
       root = Node(val);
       return root;
     }
 
     if (root.data > val) {
-      root.left = this.insert(val, root.left);
+      root.left = insert(val, root.left);
     } else {
-      root.right = this.insert(val, root.right);
+      root.right = insert(val, root.right);
     }
 
     return root;
   };
 
   ///// DELETE \\\\\
-  const del = (val, root = null) => {
+  const del = (val, root = _root) => {
     // Base case
     if (root === null) {
       return root;
@@ -164,7 +164,7 @@ const Tree = (arr = null) => {
   const reBalance = () => {};
 
   ///// PRINT TREE \\\\\
-  const prettyPrint = (node = root, prefix = '', isLeft = true) => {
+  const prettyPrint = (node = _root, prefix = '', isLeft = true) => {
     if (node === null) {
       return;
     }
@@ -180,8 +180,17 @@ const Tree = (arr = null) => {
   ///// RETURN \\\\\
   return {
     del,
-    root,
+    root: _root,
+    find,
+    depth,
+    height,
     insert,
+    inorder,
+    preorder,
+    postorder,
+    reBalance,
+    isBalanced,
+    levelOrder,
     prettyPrint,
   };
 };
