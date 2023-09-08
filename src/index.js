@@ -301,7 +301,11 @@ const Tree = (arr = null) => {
   };
 
   ///// RE-BALANCED \\\\\
-  const reBalance = (root = _root) => {};
+  const reBalance = (root = _root) => {
+    const arr = inorder(undefined, root);
+    _root = buildTree(arr);
+    return true;
+  };
 
   ///// PRINT TREE \\\\\
   const prettyPrint = (node = _root, prefix = '', isLeft = true) => {
