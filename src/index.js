@@ -1,7 +1,7 @@
 // console.log('Hello, World!');
 
 const arr = [];
-for (let i = 1; i < 34; i++) {
+for (let i = 1; i < 64; i++) {
   arr.push(5 * i);
 }
 
@@ -150,7 +150,7 @@ const Tree = (arr = null) => {
   };
 
   ///// LEVEL ORDER RECURSION \\\\\
-  const levelOrderRec = (callback, queue = [_root], arr = [], i = 0) => {
+  const levelOrderRec = (callback, root = _root, queue = [root], arr = [], i = 0) => {
     if (!queue[i]) {
       if (callback === undefined) return arr;
       return;
@@ -163,7 +163,7 @@ const Tree = (arr = null) => {
     }
     if (queue[i].left) queue.push(queue[i].left);
     if (queue[i].right) queue.push(queue[i].right);
-    return levelOrderRec(callback, queue, arr, i + 1);
+    return levelOrderRec(callback, root, queue, arr, i + 1);
   };
 
   ///// PREORDER : root - left -right \\\\\
@@ -172,24 +172,21 @@ const Tree = (arr = null) => {
 
     // recursion preorder
     const preorderTraversal = (innerCallback = callback, innerRoot = root, arr = stack) => {
-      if (innerRoot === null) {
-        return innerRoot;
-      }
+      if (innerRoot === null) return;
 
       // read node first
       if (innerCallback) {
         innerCallback(innerRoot);
       } else {
+        // arr.push(innerRoot);
         arr.push(innerRoot.data);
       }
 
       // then read left
-      innerRoot.left = preorderTraversal(innerCallback, innerRoot.left, arr);
+      preorderTraversal(innerCallback, innerRoot.left, arr);
 
       // then read right
-      innerRoot.right = preorderTraversal(innerCallback, innerRoot.right, arr);
-
-      return innerRoot;
+      preorderTraversal(innerCallback, innerRoot.right, arr);
     };
 
     preorderTraversal();
@@ -202,21 +199,21 @@ const Tree = (arr = null) => {
     const stack = [];
 
     const inorderTraversal = (innerCallback = callback, innerRoot = root, arr = stack) => {
-      if (innerRoot === null) {
-        return innerRoot;
-      }
+      if (innerRoot === null) return;
 
-      innerRoot.left = inorderTraversal(innerCallback, innerRoot.left, arr);
+      // read left first
+      inorderTraversal(innerCallback, innerRoot.left, arr);
 
+      // read root
       if (innerCallback) {
         innerCallback(innerRoot);
       } else {
+        // arr.push(innerRoot);
         arr.push(innerRoot.data);
       }
 
-      innerRoot.right = inorderTraversal(innerCallback, innerRoot.right, arr);
-
-      return innerRoot;
+      // read right
+      inorderTraversal(innerCallback, innerRoot.right, arr);
     };
 
     inorderTraversal();
@@ -229,19 +226,21 @@ const Tree = (arr = null) => {
     const stack = [];
 
     const postorderTraversal = (innerCallback = callback, innerRoot = root, arr = stack) => {
-      if (innerRoot === null) {
-        return innerRoot;
-      }
+      if (innerRoot === null) return;
 
-      innerRoot.right = postorderTraversal(innerCallback, innerRoot.right, arr);
+      // read right
+      postorderTraversal(innerCallback, innerRoot.right, arr);
 
+      // read root
       if (innerCallback) {
         innerCallback(innerRoot);
       } else {
+        // arr.push(innerRoot);
         arr.push(innerRoot.data);
       }
 
-      innerRoot.left = postorderTraversal(innerCallback, innerRoot.left, arr);
+      // read left
+      postorderTraversal(innerCallback, innerRoot.left, arr);
     };
 
     postorderTraversal();
@@ -250,16 +249,59 @@ const Tree = (arr = null) => {
   };
 
   ///// HEIGHT \\\\\
-  const height = () => {};
+  const height = (root = _root) => {
+    if (root === null) return 0;
+
+    const leftHeight = height(root.left);
+
+    const rightHeight = height(root.right);
+
+    const maxHeight = Math.max(leftHeight, rightHeight);
+
+    return 1 + maxHeight;
+  };
 
   ///// DEPTH \\\\\
-  const depth = () => {};
+  const depth = (node, root = _root) => {
+    if (root === null || node === null) {
+      return 0;
+    }
+
+    return height(root) - height(node);
+  };
 
   ///// IS BALANCED \\\\\
-  const isBalanced = () => {};
+  const isBalanced = (outerRoot = _root) => {
+    let flag = true;
+
+    const recursion = (root = outerRoot) => {
+      if (root === null) return 0;
+
+      const leftHeight = recursion(root.left);
+
+      const rightHeight = recursion(root.right);
+
+      const minHeight = Math.min(leftHeight, rightHeight);
+
+      const maxHeight = Math.max(leftHeight, rightHeight);
+
+      const diff = maxHeight - minHeight;
+
+      // change outer variable if any 2 branches not balanced
+      if (diff > 1) {
+        flag = false;
+      }
+
+      return 1 + maxHeight;
+    };
+
+    recursion();
+
+    return flag;
+  };
 
   ///// RE-BALANCED \\\\\
-  const reBalance = () => {};
+  const reBalance = (root = _root) => {};
 
   ///// PRINT TREE \\\\\
   const prettyPrint = (node = _root, prefix = '', isLeft = true) => {
