@@ -78,13 +78,10 @@ const Tree = (arr = null) => {
 
   ///// DELETE \\\\\
   const del = (val, root = _root) => {
-    // Base case
     if (root === null) {
       return root;
     }
 
-    // Recursive calls for ancestors of
-    // node to be deleted
     if (root.data > val) {
       root.left = del(val, root.left);
       return root;
@@ -93,10 +90,6 @@ const Tree = (arr = null) => {
       return root;
     }
 
-    // We reach here when root is the node
-    // to be deleted.
-
-    // If one of the children is empty
     if (root.left === null) {
       let temp = root.right;
       delete root;
@@ -105,45 +98,73 @@ const Tree = (arr = null) => {
       let temp = root.left;
       delete root;
       return temp;
-    }
-
-    // If both children exist
-    else {
+    } else {
       let succParent = root;
 
-      // Find successor
       let succ = root.right;
       while (succ.left !== null) {
         succParent = succ;
         succ = succ.left;
       }
 
-      // Delete successor.  Since successor
-      // is always left child of its parent
-      // we can safely make successor's right
-      // right child as left of its parent.
-      // If there is no succ, then assign
-      // succ.right to succParent.right
       if (succParent !== root) {
         succParent.left = succ.right;
       } else {
         succParent.right = succ.right;
       }
 
-      // Copy Successor Data to root
       root.data = succ.data;
 
-      // Delete Successor and return root
       delete succ;
       return root;
     }
   };
 
   ///// FIND \\\\\
-  const find = () => {};
+  const find = (val, root = _root) => {
+    if (root.data === val) return root;
+    if (root.data > val) {
+      return find(val, root.left);
+    } else {
+      return find(val, root.right);
+    }
+  };
 
   ///// LEVEL ORDER \\\\\
-  const levelOrder = () => {};
+  const levelOrder = (callback, root = _root) => {
+    const arr = [];
+    const queue = [root];
+    let i = 0;
+    while (queue[i]) {
+      if (callback) {
+        callback(queue[i]);
+      } else {
+        arr.push(queue[i].data);
+      }
+      if (queue[i].left) queue.push(queue[i].left);
+      if (queue[i].right) queue.push(queue[i].right);
+      i++;
+    }
+
+    if (callback === undefined) return arr;
+  };
+
+  ///// LEVEL ORDER RECURSION \\\\\
+  const levelOrderRec = (callback, root = _root, arr = [], queue = [root], i = 0) => {
+    if (!queue[i]) {
+      if (callback === undefined) return arr;
+      return;
+    }
+
+    if (callback) {
+      callback(queue[i]);
+    } else {
+      arr.push(queue[i].data);
+    }
+    if (root.left) queue.push(queue[i].left);
+    if (root.right) queue.push(queue[i].right);
+    return levelOrderRec(callback, root, arr, queue, i + 1);
+  };
 
   ///// INORDER \\\\\
   const inorder = () => {};
@@ -195,6 +216,7 @@ const Tree = (arr = null) => {
     isBalanced,
     levelOrder,
     prettyPrint,
+    levelOrderRec,
   };
 };
 
