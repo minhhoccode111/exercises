@@ -1,7 +1,7 @@
 // console.log('Hello, World!');
 
 const arr = [];
-for (let i = 1; i < 45; i++) {
+for (let i = 1; i < 34; i++) {
   arr.push(5 * i);
 }
 
@@ -150,7 +150,7 @@ const Tree = (arr = null) => {
   };
 
   ///// LEVEL ORDER RECURSION \\\\\
-  const levelOrderRec = (callback, root = _root, arr = [], queue = [root], i = 0) => {
+  const levelOrderRec = (callback, queue = [_root], arr = [], i = 0) => {
     if (!queue[i]) {
       if (callback === undefined) return arr;
       return;
@@ -161,19 +161,93 @@ const Tree = (arr = null) => {
     } else {
       arr.push(queue[i].data);
     }
-    if (root.left) queue.push(queue[i].left);
-    if (root.right) queue.push(queue[i].right);
-    return levelOrderRec(callback, root, arr, queue, i + 1);
+    if (queue[i].left) queue.push(queue[i].left);
+    if (queue[i].right) queue.push(queue[i].right);
+    return levelOrderRec(callback, queue, arr, i + 1);
   };
 
-  ///// INORDER \\\\\
-  const inorder = () => {};
+  ///// PREORDER : root - left -right \\\\\
+  const preorder = (callback, root = _root) => {
+    const stack = [];
 
-  ///// PREORDER \\\\\
-  const preorder = () => {};
+    // recursion preorder
+    const preorderTraversal = (innerCallback = callback, innerRoot = root, arr = stack) => {
+      if (innerRoot === null) {
+        return innerRoot;
+      }
 
-  ///// POSTORDER \\\\\
-  const postorder = () => {};
+      // read node first
+      if (innerCallback) {
+        innerCallback(innerRoot);
+      } else {
+        arr.push(innerRoot.data);
+      }
+
+      // then read left
+      innerRoot.left = preorderTraversal(innerCallback, innerRoot.left, arr);
+
+      // then read right
+      innerRoot.right = preorderTraversal(innerCallback, innerRoot.right, arr);
+
+      return innerRoot;
+    };
+
+    preorderTraversal();
+
+    if (!callback) return stack;
+  };
+
+  ///// INORDER : left - root - right \\\\\
+  const inorder = (callback, root = _root) => {
+    const stack = [];
+
+    const inorderTraversal = (innerCallback = callback, innerRoot = root, arr = stack) => {
+      if (innerRoot === null) {
+        return innerRoot;
+      }
+
+      innerRoot.left = inorderTraversal(innerCallback, innerRoot.left, arr);
+
+      if (innerCallback) {
+        innerCallback(innerRoot);
+      } else {
+        arr.push(innerRoot.data);
+      }
+
+      innerRoot.right = inorderTraversal(innerCallback, innerRoot.right, arr);
+
+      return innerRoot;
+    };
+
+    inorderTraversal();
+
+    if (!callback) return stack;
+  };
+
+  ///// POSTORDER : right - root - left \\\\\
+  const postorder = (callback, root = _root) => {
+    const stack = [];
+
+    const postorderTraversal = (innerCallback = callback, innerRoot = root, arr = stack) => {
+      if (innerRoot === null) {
+        return innerRoot;
+      }
+
+      innerRoot.right = postorderTraversal(innerCallback, innerRoot.right, arr);
+
+      if (innerCallback) {
+        innerCallback(innerRoot);
+      } else {
+        arr.push(innerRoot.data);
+      }
+
+      innerRoot.left = postorderTraversal(innerCallback, innerRoot.left, arr);
+    };
+
+    postorderTraversal();
+
+    if (!callback) return stack;
+  };
 
   ///// HEIGHT \\\\\
   const height = () => {};
