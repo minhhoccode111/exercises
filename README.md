@@ -2,7 +2,7 @@
 
 ## Building a balanced Binary Search Tree
 
-![A screenshot of the Binary Search Trees](https://github.com/minhhoccode111/binary-search-trees-top/tree/main/src/img/bst.pgn)
+![A screenshot of the Binary Search Trees](https://github.com/minhhoccode111/binary-search-trees-top/tree/main/src/img/bst.png)
 
 ## Links
 
