@@ -92,11 +92,11 @@ const Tree = (arr = null) => {
 
     if (root.left === null) {
       let temp = root.right;
-      delete root;
+      // delete root; // root is unqualified
       return temp;
     } else if (root.right === null) {
       let temp = root.left;
-      delete root;
+      // delete root; // root is unqualified
       return temp;
     } else {
       let succParent = root;
@@ -115,7 +115,7 @@ const Tree = (arr = null) => {
 
       root.data = succ.data;
 
-      delete succ;
+      // delete succ; // succ is unqualified base on Bun 1.0.1
       return root;
     }
   };
