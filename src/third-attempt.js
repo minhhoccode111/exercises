@@ -7,6 +7,7 @@ class Node {
     this.x = x;
     this.y = y;
     this.around = [];
+    this.isVisited = false;
   }
 }
 
@@ -29,6 +30,7 @@ class Board {
     }
   }
 
+  // get a i(row) and j(col) of a node and returns all neighbors node
   aroundNodes(i, j) {
     const currentNode = this.board[i][j];
     const board = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -49,10 +51,43 @@ class Board {
       currentNode.around.push(neighborNode);
     }
   }
+
+  // takes an array e.g.[2,2] as a position and returns node at the position
+  selectNode(arr) {
+    const [i, j] = arr;
+    return this.board[i][j];
+  }
 }
 
 // start = [0,0], end = [7,7]
 const knightMoves = (start, end) => {
   const board = new Board();
-  //
+  const startNode = board.selectNode(start);
+  const endNode = board.selectNode(end);
+  const road = [];
+  const queue = [startNode];
+  let index = 0;
+
+  while (queue.length > 0) {
+    // get current node in queue
+    const current = queue[index];
+    // increase index
+    index++;
+    // return if current is endNode
+    if (current === endNode) return 'Found';
+    // mark current as visited
+    current.isVisited = true;
+    // loop through all its neighbors
+    for (const neighbor of current.around) {
+      // if neighbor has not visited yet
+      if (!neighbor.isVisited) {
+        queue.push(neighbor);
+        console.log(queue);
+      }
+    }
+  }
+
+  return 'Not found';
 };
+
+knightMoves([0, 0], [7, 7]);
