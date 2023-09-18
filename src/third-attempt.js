@@ -44,6 +44,7 @@ class Board {
       [-2, 1],
       [-2, -1],
     ];
+    // .filter() to remove not legit moves, .map() to make it real position
     const arrOfNeighbors = table.filter((move) => board.indexOf(move[0] + i) > -1 && board.indexOf(move[1] + j) > -1).map((legal) => [legal[0] + i, legal[1] + j]);
     for (const neighbor of arrOfNeighbors) {
       const [row, col] = neighbor;
@@ -65,25 +66,49 @@ const knightMoves = (start, end) => {
   const startNode = board.selectNode(start);
   const endNode = board.selectNode(end);
   const road = [];
-  const queue = [startNode];
+  const queue = [startNode]; // queue start at startNode
 
-  while (queue.length > 0) {
+  // while (queue.length > 0) {
+  //   const leng = queue.length;
+  //   const thisDepth = [];
+  //   for (let i = 0; i < leng; i++) {
+  //     const current = queue.shift();
+  //     thisDepth.push(current);
+  //     current.isVisited = true;
+  //     for (const neighbor of current.around) {
+  //       neighbor.parent = current;
+  //       if (neighbor === endNode) return endNode;
+  //       if (!neighbor.isVisited) {
+  //         queue.push(neighbor);
+  //       }
+  //     }
+  //   }
+  //   road.push(thisDepth);
+  // }
+  while (queue.length) {
+    const clone = [...queue];
+    road.push(clone);
     const leng = queue.length;
-    const thisDepth = [];
     for (let i = 0; i < leng; i++) {
       const current = queue.shift();
-      thisDepth.push(current);
       current.isVisited = true;
-      for (const neighbor of current.around) {
-        if (!neighbor.isVisited) {
+      for (let j = 0; j < current.around.length; j++) {
+        const neighbor = current.around[j];
+        neighbor.parent = current;
+        // if (neighbor === endNode) return endNode;
+        if (queue.indexOf(neighbor) < 0) {
           queue.push(neighbor);
         }
       }
     }
-    road.push(thisDepth);
   }
 
   return road;
+  // .reduce((total, level, index) => {
+  //   level.reduce((result, node) => {
+
+  //   }, {});
+  // }, {});
 };
 
 knightMoves([0, 0], [7, 7]);
