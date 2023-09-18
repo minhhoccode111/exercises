@@ -66,28 +66,24 @@ const knightMoves = (start, end) => {
   const endNode = board.selectNode(end);
   const road = [];
   const queue = [startNode];
-  let index = 0;
 
   while (queue.length > 0) {
-    // get current node in queue
-    const current = queue[index];
-    // increase index
-    index++;
-    // return if current is endNode
-    if (current === endNode) return 'Found';
-    // mark current as visited
-    current.isVisited = true;
-    // loop through all its neighbors
-    for (const neighbor of current.around) {
-      // if neighbor has not visited yet
-      if (!neighbor.isVisited) {
-        queue.push(neighbor);
-        console.log(queue);
+    const leng = queue.length;
+    const thisDepth = [];
+    for (let i = 0; i < leng; i++) {
+      const current = queue.shift();
+      thisDepth.push(current);
+      current.isVisited = true;
+      for (const neighbor of current.around) {
+        if (!neighbor.isVisited) {
+          queue.push(neighbor);
+        }
       }
     }
+    road.push(thisDepth);
   }
 
-  return 'Not found';
+  return road;
 };
 
 knightMoves([0, 0], [7, 7]);
