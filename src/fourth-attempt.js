@@ -7,7 +7,6 @@ class Node {
     this.x = x;
     this.y = y;
     this.around = [];
-    this.isVisited = false;
   }
 }
 
@@ -61,31 +60,16 @@ class Board {
 }
 
 // start = [0,0], end = [7,7]
-const knightMoves = (start, end) => {
-  const board = new Board();
-  const startNode = board.selectNode(start);
-  const endNode = board.selectNode(end);
-  const road = [];
-  const queue = [startNode]; // queue start at startNode
+// const knightMoves = (start, end) => {
+//   const board = new Board();
+//   const startNode = board.selectNode(start);
+//   const endNode = board.selectNode(end);
 
-  while (queue.length > 0) {
-    const clone = [...queue];
-    road.push(clone);
-    const leng = queue.length;
-    for (let i = 0; i < leng; i++) {
-      const current = queue.shift();
-      if (current.isVisited) continue;
-      current.isVisited = true;
-      for (const neighbor of current.around) {
-        neighbor.parent = current;
-        if (!neighbor.isVisited && queue.indexOf(neighbor) < 0) {
-          queue.push(neighbor);
-        }
-      }
-    }
-  }
+//   const queue = [startNode]; // queue start at startNode
 
-  return road;
-};
+//   while (queue.length > 0) {}
 
-knightMoves([0, 0], [7, 7]);
+//   return null;
+// };
+
+// knightMoves([0, 0], [7, 7]);
