@@ -6,9 +6,9 @@ const fibsRec = (n, current = 0, space = 1, arr = []) => {
   return fibsRec(n - 1, current + space, current, [...arr, current]);
 };
 
-console.log(fibsRec(8));
-console.log(fibsRec(18));
-console.log(fibsRec(28));
+// console.log(fibsRec(8));
+// console.log(fibsRec(18));
+// console.log(fibsRec(28));
 
 const fibonacciRecursionShort = (n, current = 0, space = 1, arr = []) => (n < 1 ? arr : fibonacciRecursionShort(n - 1, current + space, current, [...arr, current]));
 
@@ -22,3 +22,5 @@ const fibsRec1 = (n) => {
 // or
 
 const fibsRec2 = (n) => (n <= 1 ? n : fibsRec2(n - 1) + fibsRec2(n - 2));
+
+module.exports = fibsRec;
