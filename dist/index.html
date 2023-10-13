@@ -1,1 +1,177 @@
-<head><script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS practice</title>
+    <link rel="stylesheet" href="./output.css" />
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+  <body>
+    <div id="wrapper" class="">
+      <h1 class="text-center text-2xl font-bold text-orange-500">
+        Practice CSS Tailwind
+      </h1>
+      <div class="" id="the-odin-project-ctn-ctn">
+        <div id="two-dimensional-transforms-ctn" class="hidden">
+          <h2 class="text-center text-xl font-bold">
+            two dimensional transforms
+          </h2>
+          <h3 class="text-lg font-bold">rotate</h3>
+          <div
+            id="rotate-ctn"
+            class="flex items-center justify-evenly bg-red-300 p-3"
+          >
+            <div class="h-12 w-12 bg-green-300"></div>
+            <div class="h-12 w-12 rotate-45 bg-green-200 hover:rotate-12">
+              45 deg
+            </div>
+            <div class="rotate-0,3-turn h-12 w-12 bg-green-300">0.3 turn</div>
+            <div class="rotate-rad-1 h-12 w-12 bg-green-400">1 rad</div>
+          </div>
+          <h3 class="text-lg font-bold">scale</h3>
+          <div
+            id="scale-ctn"
+            class="flex items-center justify-evenly bg-red-300 p-3"
+          >
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div class="absolute z-10 h-full w-full bg-green-300"></div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-500"
+            >
+              <div class="absolute z-10 h-full w-full scale-x-50 bg-green-200">
+                scale x 0.5
+              </div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-500"
+            >
+              <div class="absolute z-10 h-full w-full scale-y-150 bg-green-200">
+                scale y 1.5
+              </div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-500"
+            >
+              <div
+                class="absolute z-10 h-full w-full scale-x-50 scale-y-150 bg-green-200"
+              >
+                scaleX0.5 scaleY1.5
+              </div>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold">skew</h3>
+
+          <div
+            class="flex items-center justify-evenly bg-red-300 p-3"
+            id="skew-ctn"
+          >
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div class="absolute z-10 h-full w-full bg-green-300"></div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div class="absolute z-10 h-full w-full skew-x-12 bg-green-300">
+                skewX 12
+              </div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div class="absolute z-10 h-full w-full skew-y-12 bg-green-300">
+                skewY 12
+              </div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div
+                class="absolute z-10 h-full w-full skew-x-12 skew-y-12 bg-green-300"
+              >
+                skewXY 12
+              </div>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold">translate</h3>
+          <div
+            class="flex items-center justify-evenly bg-red-300 p-3"
+            id="translate-ctn"
+          >
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div class="absolute z-10 h-full w-full bg-green-300"></div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div
+                class="absolute z-10 h-full w-full translate-x-full bg-green-300"
+              >
+                translate x full
+              </div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div
+                class="absolute z-10 h-full w-full translate-y-full bg-green-300"
+              >
+                translate y full
+              </div>
+            </div>
+            <div
+              class="relative z-20 h-12 w-12 border-2 border-dotted border-red-600"
+            >
+              <div
+                class="absolute z-10 h-full w-full translate-x-full translate-y-full bg-green-300"
+              >
+                translate xy full
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="three-dimensional-transforms-ctn">
+          <h2 class="mt-10 text-center text-xl font-bold">
+            three dimensional transforms
+          </h2>
+          <div
+            id="css-trick-perspective-basic-ctn"
+            class="flex flex-col bg-red-300 p-3"
+          >
+            <p class="text-center font-bold">
+              both squares is translateZ -100px to 100px
+            </p>
+            <div class="flex items-center justify-evenly">
+              <p class="font-bold">not use perspective</p>
+              <p class="font-bold">use perspective: 100px</p>
+            </div>
+
+            <div class="flex items-center justify-evenly">
+              <div
+                class="flex h-48 w-48 items-center justify-center rounded border"
+              >
+                <div
+                  class="not-use-perspective h-12 w-12 rounded bg-green-400"
+                ></div>
+              </div>
+              <div
+                class="use-perspective-translate-z-ctn flex h-48 w-48 items-center justify-center rounded border"
+              >
+                <div
+                  class="use-perspective-translate-z h-12 w-12 rounded bg-green-400"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

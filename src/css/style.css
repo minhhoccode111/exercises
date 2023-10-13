@@ -1,0 +1,21 @@
+body {
+  height: 300vh;
+}
+
+.use-perspective-translate-z-ctn {
+  perspective: 133px;
+}
+
+.use-perspective-translate-z {
+  animation: moveOnZ 3s infinite ease-in-out alternate;
+  background-color: red;
+}
+
+@keyframes moveOnZ {
+  from {
+    transform: translateZ(-1000px);
+  }
+  to {
+    transform: translateZ(100px);
+  }
+}
