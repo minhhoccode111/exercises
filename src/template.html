@@ -143,7 +143,7 @@
           </h2>
           <div
             id="css-trick-perspective-basic-ctn"
-            class="flex flex-col bg-red-300 p-3"
+            class="flex hidden flex-col bg-red-300 p-3"
           >
             <p class="text-center font-bold">
               both squares is translateZ -100px to 100px
@@ -168,6 +168,30 @@
                   class="use-perspective-translate-z h-12 w-12 rounded bg-green-400"
                 ></div>
               </div>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            id="css-trick-perspective-origin-ctn-ctn"
+            class="mt-4 grid grid-cols-2 gap-2 bg-red-300 p-3"
+          >
+            <p class="text-center">
+              perspective-origin centered but translateX 100px to -100px
+            </p>
+            <p class="text-center">
+              stand still but perspective origin from left to right
+            </p>
+            <div
+              id="perspective-origin-left-to-right-ctn"
+              class="mx-auto flex h-48 w-48 items-center justify-center rounded-3xl border"
+            >
+              <div class="h-24 w-24 bg-green-700"></div>
+            </div>
+            <div
+              id="perspective-origin-center-ctn"
+              class="mx-auto flex h-48 w-48 items-center justify-center rounded-3xl border"
+            >
+              <div class="h-24 w-24 bg-green-700"></div>
             </div>
           </div>
         </div>

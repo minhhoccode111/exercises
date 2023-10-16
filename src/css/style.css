@@ -13,9 +13,46 @@ body {
 
 @keyframes moveOnZ {
   from {
-    transform: translateZ(-1000px);
+    transform: translateZ(-100px);
   }
   to {
     transform: translateZ(100px);
   }
+}
+
+@keyframes perspectiveOrigin {
+  0% {
+    perspective-origin: left;
+  }
+  50% {
+    perspective-origin: right;
+  }
+  100% {
+    perspective-origin: left;
+  }
+}
+
+@keyframes moveOnX {
+  0% {
+    transform: translateX(100px) rotateY(90deg);
+  }
+  100% {
+    transform: translateX(-100px) rotateY(90deg);
+  }
+}
+
+#perspective-origin-left-to-right-ctn {
+  perspective: 240px;
+  /* animation: perspectiveOrigin 8s ease-in-out infinite alternate; */
+}
+#perspective-origin-center-ctn {
+  perspective: 240px;
+  animation: perspectiveOrigin 8s ease-in-out infinite alternate;
+}
+
+#perspective-origin-left-to-right-ctn div {
+  animation: moveOnX 4s ease-in-out infinite alternate;
+}
+#perspective-origin-center-ctn div {
+  transform: rotateY(90deg);
 }
