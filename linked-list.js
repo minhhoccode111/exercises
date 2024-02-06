@@ -1,6 +1,6 @@
 // LINKED LISTS WITH FACTORIES
 class Node {
-  constructor(key = null, value = null, next = null) {
+  constructor(value = null, key = null, next = null) {
     this.k = key;
     this.v = value;
     this.n = next;
@@ -32,8 +32,8 @@ module.export = function LinkedList() {
   const head = () => _head;
   const tail = () => _tail;
   const size = () => _size;
-  const append = (value) => {
-    const node = new Node(value);
+  const append = (value, key) => {
+    const node = new Node(value, key);
     if (_size === 0) {
       _head = node;
       _tail = node;
@@ -45,15 +45,15 @@ module.export = function LinkedList() {
     _size++;
     return _size;
   };
-  const prepend = (k, v) => {
+  const prepend = (value, key) => {
     if (_size === 0) {
-      const node = new Node(k, v);
+      const node = new Node(value, key);
       _head = node;
       _tail = node;
       _size = 1;
       return 1;
     }
-    const node = new Node(k, v, _head);
+    const node = new Node(value, key, _head);
     _head = node;
     _size++;
     return _size;
@@ -71,15 +71,15 @@ module.export = function LinkedList() {
     _tail.next = null;
     return removeItem;
   };
-  const contains = (val, currentNode = _head, index = 0) => {
+  const contains = (key, currentNode = _head, index = 0) => {
     if (_size === index) return false;
-    if (currentNode.value === val) return true;
-    return contains(val, currentNode.next, index + 1);
+    if (currentNode.key === key) return true;
+    return contains(key, currentNode.next, index + 1);
   };
-  const find = (val, currentNode = _head, index = 0) => {
+  const find = (key, currentNode = _head, index = 0) => {
     if (_size === index) return -1;
-    if (currentNode.value === val) return index;
-    return find(val, currentNode.next, index + 1);
+    if (currentNode.key === key) return index;
+    return find(key, currentNode.next, index + 1);
   };
   const toString = (currentNode = _head, index = 0, string = '') => {
     if (index === _size) return string + 'null';
@@ -87,11 +87,11 @@ module.export = function LinkedList() {
     let format = `( ${currentNodesString} ) -> `;
     return toString(currentNode.next, index + 1, string + format);
   };
-  const insertAt = (val, index) => {
+  const insertAt = (value, key, index) => {
     if (index === 0 || index === _size) return;
     const beforeIndexNode = at(index - 1);
     const currentIndexNode = beforeIndexNode.next;
-    const node = new Node(val, currentIndexNode);
+    const node = new Node(value, key, currentIndexNode);
     beforeIndexNode.next = node;
     _size++;
     return node;
