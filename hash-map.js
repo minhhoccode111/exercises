@@ -1,4 +1,8 @@
 const LinkedList = require('./linked-list');
+// return {
+// head, tail, size, append, prepend, at, pop,
+// contains, find, insertAt, removeAt, toString
+// };
 
 const HashMap = () => {
   const _loadFactor = 0.75;
@@ -40,7 +44,7 @@ const HashMap = () => {
   };
   const values = () => _buckets.filter((current, index) => {});
   const entries = () => {
-    //
+    // [[firstKey, firstValue], [secondKey, secondValue]]
   };
   return {};
 };
