@@ -113,6 +113,14 @@ const LinkedList = () => {
     currentIndex.next = null;
     return currentIndex;
   };
+  const values = (results = [], currentNode = _head) => {
+    if (currentNode === null) return;
+    return values([...results, currentNode.value], _head.next);
+  };
+  const entries = (results = [], currentNode = _head) => {
+    if (currentNode === null) return;
+    return entries([...results, [currentNode.key, currentNode.value]]);
+  };
   return {
     head,
     tail,
@@ -126,6 +134,7 @@ const LinkedList = () => {
     insertAt,
     removeAt,
     toString,
+    values,
   };
 };
 
@@ -139,17 +148,13 @@ const HashMap = () => {
     let hashCode = 0;
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
-      hashCode = primeNumber * hashCode + key.charCodeAt(i);
+      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % _size;
     }
     return hashCode;
   };
-  // index of a key in _bucket after hashing
-  const _index = (key) => {
-    const hashCode = _hash(key);
-    return hashCode % _size;
-  };
+
   // will be a linked list or undefined
-  const _getBucket = (key) => _buckets[_index(key)];
+  const _getBucket = (key) => _buckets[_hash(key)];
   // will be a linked list node or undefined
   const _getNode = (key) => _getBucket(key)?.at(_getBucket(key)?.find(key));
   // will be a key's value or null
@@ -159,7 +164,6 @@ const HashMap = () => {
     if (_keys.length() === _size * _loadFactor) {
       _size *= 2;
       // TODO: implement re-placing key-value to new buckets with new size (add current key-value at the same time then return)
-      return;
     }
 
     const bucket = _getBucket(key);
@@ -171,8 +175,8 @@ const HashMap = () => {
 
     // bucket is undefined, create linked list, append
     if (bucket === undefined) {
-      _buckets[_index(key)] = LinkedList();
-      _buckets[_index(key)].append(value, key);
+      _buckets[_hash(key)] = LinkedList();
+      _buckets[_hash(key)].append(value, key);
     }
 
     // bucket is linked list, key not existed, append
@@ -182,24 +186,35 @@ const HashMap = () => {
     _keys.push(key);
     return true; // for add new
   };
-  const has = (key) => {
-    //
-  };
+  const has = (key) => get(key) !== null;
   const remove = (key) => {
-    //
+    if (!has(key)) return false;
+    _getBucket(key).removeAt(_getBucket(key).find(key));
+    return true;
   };
-  const length = () => {
-    //
-  };
+  const length = () => _keys.length;
+
   const clear = () => {
-    //
+    _keys = [];
+    _buckets = [];
   };
   const keys = () => _keys;
   const values = () => {
-    //
+    let results = [];
+    for (let i = 0; i < _size; i++) {
+      const currentBucket = _buckets[i];
+      if (currentBucket === undefined) continue;
+      results = [...results, ...currentBucket.values()];
+    }
   };
   const entries = () => {
     // [[firstKey, firstValue], [secondKey, secondValue]]
+    let results = [];
+    for (let i = 0; i < _size; i++) {
+      const currentBucket = _buckets[i];
+      if (currentBucket === undefined) continue;
+      results = [...results, ...currentBucket.entries()];
+    }
   };
   return { get, set, has, remove, length, clear, keys, values, entries };
 };
