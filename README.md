@@ -2,7 +2,7 @@
 
 ## Building a balanced Binary Search Tree
 
-![A screenshot of the Binary Search Trees](https://github.com/minhhoccode111/binary-search-trees-top/tree/main/src/img/bst.png)
+![A screenshot of the Binary Search Trees](public/bst.png)
 
 ## Links
 
@@ -27,7 +27,12 @@ const mergeSort = (arr) => {
 };
 
 // combine with buildTree function
-const recursiveBuildTree = (sortedArr, start = 0, end = sortedArr.length - 1, mid = Math.floor((start + end) / 2)) => {
+const recursiveBuildTree = (
+  sortedArr,
+  start = 0,
+  end = sortedArr.length - 1,
+  mid = Math.floor((start + end) / 2),
+) => {
   // code
 };
 
@@ -65,7 +70,13 @@ const Tree = (arr = null) => {
   };
 
   ///// LEVEL ORDER RECURSION \\\\\
-  const levelOrderRec = (callback, root = _root, queue = [root], arr = [], i = 0) => {
+  const levelOrderRec = (
+    callback,
+    root = _root,
+    queue = [root],
+    arr = [],
+    i = 0,
+  ) => {
     // code
   };
 
@@ -105,7 +116,7 @@ const Tree = (arr = null) => {
   };
 
   ///// PRINT TREE \\\\\
-  const prettyPrint = (node = _root, prefix = '', isLeft = true) => {
+  const prettyPrint = (node = _root, prefix = "", isLeft = true) => {
     // code
   };
 
