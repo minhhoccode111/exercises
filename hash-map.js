@@ -68,7 +68,9 @@ function HashMap() {
   }
   function remove(key) {
     if (!has(key)) return false; // fail
-    _buckets[_hash(key)] = _getBucket(key).filter((element) => element.key !== key);
+    _buckets[_hash(key)] = _getBucket(key).filter(
+      (element) => element.key !== key,
+    );
     _keys = _keys.filter((k) => k !== key);
     return true; // success
   }
@@ -88,7 +90,13 @@ function HashMap() {
     for (let i = 0; i < _size; i++) {
       const currentBucket = _buckets[i];
       if (!currentBucket) continue;
-      results = [...results, ...currentBucket.reduce((total, current) => [...total, current.value], [])];
+      results = [
+        ...results,
+        ...currentBucket.reduce(
+          (total, current) => [...total, current.value],
+          [],
+        ),
+      ];
     }
     return results;
   }
@@ -98,7 +106,13 @@ function HashMap() {
     for (let i = 0; i < _size; i++) {
       const currentBucket = _buckets[i];
       if (!currentBucket) continue;
-      results = [...results, ...currentBucket.reduce((total, current) => [...total, [current.key, current.value]], [])];
+      results = [
+        ...results,
+        ...currentBucket.reduce(
+          (total, current) => [...total, [current.key, current.value]],
+          [],
+        ),
+      ];
     }
     return results;
   }
@@ -106,24 +120,18 @@ function HashMap() {
 }
 
 const hash = HashMap();
-hash.set('a', 'tai vi sao');
-hash.set('b', 'cam xuc kia quay ve');
-hash.set('c', 'la tai ai');
-hash.set('d', 'da khien anh nhu vay');
-hash.set('e', 'da khien anh nhu vay');
-hash.set('f', 'da khien anh nhu vay');
-hash.set('g', 'da khien anh nhu vay');
-hash.set('h', 'da khien anh nhu vay');
-hash.set('i', 'da khien anh nhu vay');
-hash.set('k', 'da khien anh nhu vay');
-hash.set('l', 'da khien anh nhu vay');
-hash.set('m', 'da khien anh nhu vay');
-hash.set('n', 'da khien anh nhu vay');
-hash.set('o', 'da khien anh nhu vay');
-hash.set('p', 'da khien anh nhu vay');
-hash.set('q', 'da khien anh nhu vay');
-hash.set('r', 'da khien anh nhu vay');
-hash.set('s', 'da khien anh nhu vay');
-hash.length();
-hash.values();
-hash.entries();
+console.log(hash.set("a", "this is a"));
+console.log(hash.set("b", "this is b"));
+console.log(hash.set("c", "this is c"));
+console.log(hash.set("d", "this is d"));
+console.log(hash.set("e", "this is e"));
+console.log(hash.set("f", "this is f"));
+console.log(hash.set("g", "this is g"));
+console.log(hash.set("h", "this is h"));
+console.log(hash.set("i", "this is i"));
+console.log(hash.set("l", "this is l"));
+console.log(hash.set("m", "this is m"));
+
+console.log(hash.length());
+console.log(hash.values());
+console.log(hash.entries());

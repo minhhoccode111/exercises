@@ -27,8 +27,6 @@ then
 
 ```bash
 cd hash-map-top
-npm install
-npm start
 ```
 
 ## **Idea to implement**
@@ -37,8 +35,8 @@ npm start
 
 ## **Navigation**
 
-- See [all my projects'](https://github.com/minhhoccode111/all-projects-live-demos) live demos
+- See [all my projects](https://github.com/minhhoccode111)
 
-* See my previous project [anything](https://github.com/minhhoccode111/linked-lists-top)
+* See my previous project [Linked Lists](https://github.com/minhhoccode111/linked-lists-top)
 
 <!-- * See my next project []() -->
