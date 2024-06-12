@@ -94,7 +94,7 @@ void printStack(stack *s) {
   node *tmp = s->items;
 
   while (tmp != NULL) {
-    printf("%d - - > ", tmp->value);
+    printf("%d --> ", tmp->value);
     tmp = tmp->next;
   }
   printf("NULL\n");
@@ -111,7 +111,9 @@ int main(void) {
     int result = push(s, i);
 
     if (result == INT_MIN) // push fail
+    {
       return 1;
+    }
   }
 
   printStack(s);
@@ -121,11 +123,22 @@ int main(void) {
   top
   |
   v
-  9 - - > 8 - - > 7 - - > 6 - - > 5 - - > 4 - - > 3 - - > 2 - - > 1 - - > 0 - -
-  > NULL
+  9 --> 8 --> 7 --> 6 --> 5 --> 4 --> 3 --> 2 --> 1 --> 0 --> NULL
   */
 
-  // TODO: add tests pop
+  while (INT_MIN != pop(s)) {
+    printf("%d\n", peak(s));
+  }
 
+  printStack(s);
+
+  /*
+  Pop from stack failed.
+  stack size: 0
+  top
+  |
+  v
+  NULL
+  */
   return 0;
 }

@@ -327,3 +327,154 @@ void function_1() {
 }
 
 // TODO: function pointer
+
+/*
+At run time, functions are located at known memory addresses. Function pointers
+are much like any other pointer (they just store a memory address), but can be
+used to invoke functions directly, and to pass handlers (or callback functions)
+around. However, definition syntax may be initially confusing.
+
+Example: use str_reverse from a pointer
+*/
+
+// void str_reverse_through_pointer(char *str_in) {
+//   // Define a function pointer variable, named f.
+//   void (*f)(char *); // Signature should exactly match the target function.
+//   f = &str_reverse; // Assign the address for the actual function (determined
+//   at
+//                     // run time)
+//   // f = str_reverse; would work as well - functions decay into pointers,
+//   // similar to arrays
+//   (*f)(str_in); // Just calling the function through the pointer
+//   // f(str_in); // That's an alternative but equally valid syntax for calling
+//   // it.
+// }
+
+/*
+As long as function signatures match, you can assign any function to the same
+pointer. Function pointers are usually typedef'd for simplicity and readability,
+as follows:
+*/
+
+typedef void (*my_fnp_type)(char *);
+
+// Then used when declaring the actual pointer variable:
+// ...
+// my_fnp_type f;
+
+/////////////////////////////
+// Printing characters with printf()
+/////////////////////////////
+
+// Special characters:
+/*
+'\a'; // alert (bell) character
+'\n'; // newline character
+'\t'; // tab character (left justifies text)
+'\v'; // vertical tab
+'\f'; // new page (form feed)
+'\r'; // carriage return
+'\b'; // backspace character
+'\0'; // NULL character. Usually put at end of strings in C.
+//   hello\n\0. \0 used by convention to mark end of string.
+'\\'; // backslash
+'\?'; // question mark
+'\''; // single quote
+'\"'; // double quote
+'\xhh'; // hexadecimal number. Example: '\xb' = vertical tab character
+'\0oo'; // octal number. Example: '\013' = vertical tab character
+
+//print formatting:
+"%d";    // integer
+"%3d";   // integer with minimum of length 3 digits (right justifies text)
+"%s";    // string
+"%f";    // float
+"%ld";   // long
+"%3.2f"; // minimum 3 digits left and 2 digits right decimal float
+"%7.4s"; // (can do with strings too)
+"%c";    // char
+"%p";    // pointer. NOTE: need to (void *)-cast the pointer, before passing
+         //                it as an argument to `printf`.
+"%x";    // hexadecimal
+"%o";    // octal
+"%%";    // prints %
+*/
+
+///////////////////////////////////////
+// Order of Evaluation
+///////////////////////////////////////
+
+// From top to bottom, top has higher precedence
+//---------------------------------------------------//
+//        Operators                  | Associativity //
+//---------------------------------------------------//
+// () [] -> .                        | left to right //
+// ! ~ ++ -- + = *(type) sizeof      | right to left //
+// * / %                             | left to right //
+// + -                               | left to right //
+// << >>                             | left to right //
+// < <= > >=                         | left to right //
+// == !=                             | left to right //
+// &                                 | left to right //
+// ^                                 | left to right //
+// |                                 | left to right //
+// &&                                | left to right //
+// ||                                | left to right //
+// ?:                                | right to left //
+// = += -= *= /= %= &= ^= |= <<= >>= | right to left //
+// ,                                 | left to right //
+//---------------------------------------------------//
+
+/******************************* Header Files **********************************
+
+Header files are an important part of C as they allow for the connection of C
+source files and can simplify code and definitions by separating them into
+separate files.
+
+Header files are syntactically similar to C source files but reside in ".h"
+files. They can be included in your C source file by using the precompiler
+command #include "example.h", given that example.h exists in the same directory
+as the C file.
+*/
+
+/* A safe guard to prevent the header from being defined too many times. This */
+/* happens in the case of circle dependency, the contents of the header is    */
+/* already defined.                                                           */
+// #ifndef EXAMPLE_H /* if EXAMPLE_H is not yet defined. */
+// #define EXAMPLE_H /* Define the macro EXAMPLE_H. */
+
+/* Other headers can be included in headers and therefore transitively */
+/* included into files that include this header.                       */
+#include <string.h>
+
+/* Like for c source files, macros can be defined in headers */
+/* and used in files that include this header file.          */
+#define EXAMPLE_NAME "Dennis Ritchie"
+
+/* Function macros can also be defined.  */
+#define ADD(a, b) ((a) + (b))
+
+/* Notice the parenthesis surrounding the arguments -- this is important to   */
+/* ensure that a and b don't get expanded in an unexpected way (e.g. consider */
+/* MUL(x, y) (x * y); MUL(1 + 2, 3) would expand to (1 + 2 * 3), yielding an  */
+/* incorrect result)                                                          */
+
+/* Structs and typedefs can be used for consistency between files. */
+typedef struct Node {
+  int val;
+  struct Node *next;
+} Node;
+
+/* So can enumerations. */
+enum traffic_light_state { GREEN, YELLOW, RED };
+
+/* Function prototypes can also be defined here for use in multiple files,  */
+/* but it is bad practice to define the function in the header. Definitions */
+/* should instead be put in a C file.                                       */
+Node createLinkedList(int *vals, int len);
+
+/* Beyond the above elements, other definitions should be left to a C source */
+/* file. Excessive includes or definitions should also not be contained in   */
+/* a header file but instead put into separate headers or a C file.          */
+
+// #endif /* End of the if precompiler directive. */
