@@ -41,3 +41,7 @@
 
 - a website to display how the knight move
 - do extra moves of all pieces left
+
+## Demo
+
+- This algorithms visualization [here](https://knighttravailstop.netlify.app/)
