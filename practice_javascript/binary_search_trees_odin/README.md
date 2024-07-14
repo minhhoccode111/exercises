@@ -2,7 +2,7 @@
 
 ## Building a balanced Binary Search Tree
 
-![A screenshot of the Binary Search Trees](public/bst.png)
+![A screenshot of the Binary Search Trees](bst.png)
 
 ## Links
 
