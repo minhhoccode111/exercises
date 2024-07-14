@@ -1,0 +1,16 @@
+{
+  "name": "recursion-top",
+  "version": "1.0.0",
+  "description": "Solutions to the Odin Project Node path, Javascript course, DSA sub-course, Project Recursion",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
