@@ -1,6 +1,6 @@
 # Exercises
 
-Some Exercises
+Practicing
 
 ## Important
 
