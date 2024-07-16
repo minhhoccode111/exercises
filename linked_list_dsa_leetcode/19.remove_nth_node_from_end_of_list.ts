@@ -30,8 +30,8 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     // if pace equal n
     if (pace === n) {
       // mean move slow pointer too
-      prev = (prev as ListNode).next;
-      slow = (slow as ListNode).next;
+      prev = prev!.next;
+      slow = slow!.next;
     } else {
       // else increase pace
       pace++;
@@ -41,8 +41,8 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
     // delete only node in the list
     if (slow?.next === null) return null;
     // delete first node in the list
-    return (slow as ListNode).next;
+    return slow!.next;
   }
-  (prev as ListNode).next = (slow as ListNode).next;
+  prev!.next = slow!.next;
   return head;
 }
