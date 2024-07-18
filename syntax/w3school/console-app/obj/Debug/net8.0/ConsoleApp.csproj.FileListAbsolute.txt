@@ -1,0 +1,15 @@
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/bin/Debug/net8.0/ConsoleApp
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/bin/Debug/net8.0/ConsoleApp.deps.json
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/bin/Debug/net8.0/ConsoleApp.runtimeconfig.json
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/bin/Debug/net8.0/ConsoleApp.dll
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/bin/Debug/net8.0/ConsoleApp.pdb
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.AssemblyInfoInputs.cache
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.AssemblyInfo.cs
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.csproj.CoreCompileInputs.cache
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.sourcelink.json
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.dll
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/refint/ConsoleApp.dll
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.pdb
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ConsoleApp.genruntimeconfig.cache
+/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/Debug/net8.0/ref/ConsoleApp.dll

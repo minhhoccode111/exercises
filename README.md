@@ -1,2 +1,3 @@
-# practice-csharp
-A project for practicing while learning C# 
+# Practicing C\#
+
+A project for practicing while learning C\#

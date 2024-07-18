@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tALXtVDh+li6J7ViaV6Q22UGbMb8xt6Y1epJXvOudwcv8SPV5wiYC17kuKICu0XImCmFURlZkSvSTk1k+YsQmg==",
+  "success": true,
+  "projectFilePath": "/home/mhc/cs/practice-csharp/syntax/w3school/console-app/ConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "/home/mhc/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.6/microsoft.aspnetcore.app.ref.8.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
