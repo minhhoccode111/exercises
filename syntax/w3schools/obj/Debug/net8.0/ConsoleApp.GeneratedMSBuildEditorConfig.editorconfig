@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ConsoleApp
-build_property.ProjectDir = /home/mhc/cs/practice-csharp/syntax/w3school/console-app/
+build_property.ProjectDir = /home/mhc/cs/practice-csharp/syntax/w3schools/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -7,9 +7,63 @@ namespace HelloWorld
 {
     class Program
     {
+        // field (or attribute)
+        string color = "red";
+
         static void Main(string[] args)
         {
             // Console.WriteLine("Main method is being called");
+
+            // BasicTypes();
+            // Variable();
+            // TypeCasting();
+            // UserInput();
+            // OperatorsAndAssignmentOperators();
+            // ComparisonOperators();
+            // LogicalOperators();
+            // Math();
+            // Strings();
+            // StringConcatenation();
+            // StringInterpolation();
+            // AccessStrings();
+            // SpecialCharater();
+            // Switch();
+            // ForeachLoop();
+            // SortArray();
+
+            // ############ ABOUT METHODS ############
+
+            // MyMethod(" " + "string 0");
+            // MyMethod(" " + "string 1");
+            // MyMethod(" " + "string 2");
+            // MyMethodDefault("Hello, World!");
+            // MyMethodDefault();
+            // int result0 = MyMethodReturnInt(5);
+            // int result1 = MyMethodReturnInt();
+            // Console.WriteLine(result0);
+            // Console.WriteLine(result1);
+            // MyMethodNamedArguments(s3: "this is 3.", s2: "this is 2,", s1: "this is 1,");
+
+            // int result2 = PlusMethod(3, 4);
+            // double result3 = PlusMethod(3.1, 4.1);
+            // Console.WriteLine(result2); // 7
+            // Console.WriteLine(result3); // 7.19999999999?
+
+            // ############### OOP ###############
+            // Program myObj0 = new Program();
+            // Program myObj1 = new Program();
+            // Program myObj2 = new Program();
+            // Console.WriteLine(myObj0.color);
+            // Console.WriteLine(myObj1.color);
+            // Console.WriteLine(myObj2.color);
+
+            Car myObj3 = new Car();
+            Console.WriteLine(myObj3.color);
+        }
+
+        static void BasicTypes()
+        {
+            Console.WriteLine("BasicTypes is being called");
 
             // Console.WriteLine(3 + 4);
             // Console.Write("I will print on the same line.");
@@ -41,8 +95,6 @@ namespace HelloWorld
             // Console.WriteLine(String1 + " what");
             // Console.WriteLine(Char1 + 'c'); // 198
             // Console.WriteLine(Bool1);
-
-            Variable();
         }
 
         static void Variable()
@@ -65,8 +117,6 @@ namespace HelloWorld
             // double d0 = 12e3D;
             // Console.WriteLine(f0);
             // Console.WriteLine(d0);
-
-            TypeCasting();
         }
 
         static void TypeCasting()
@@ -120,8 +170,6 @@ namespace HelloWorld
             // Console.WriteLine(Convert.ToDouble(myInt));
             // Console.WriteLine(Convert.ToInt32(myDouble));
             // Console.WriteLine(Convert.ToString(myBool));
-
-            UserInput();
         }
 
         static void UserInput()
@@ -152,8 +200,6 @@ namespace HelloWorld
             //     userAgree = Console.ReadLine()[0];
             // }
             // Console.WriteLine("User agreement: " + userAgree);
-
-            OperatorsAndAssignmentOperators();
         }
 
         static void OperatorsAndAssignmentOperators()
@@ -190,8 +236,6 @@ namespace HelloWorld
             // h <<= 10;
             // Console.WriteLine("after g <<= 10 belike: ");
             // Console.WriteLine(h);
-
-            ComparisonOperators();
         }
 
         static void ComparisonOperators()
@@ -204,8 +248,6 @@ namespace HelloWorld
             // Console.WriteLine(5 == 3);
             // Console.WriteLine(5 >= 3);
             // Console.WriteLine(5 <= 3);
-
-            LogicalOperators();
         }
 
         static void LogicalOperators()
@@ -215,8 +257,6 @@ namespace HelloWorld
             // Console.WriteLine(5 > 3 && 3 < 5);
             // Console.WriteLine(5 > 3 || 3 > 5);
             // Console.WriteLine(!(5 < 3));
-
-            Math();
         }
 
         static void Math()
@@ -232,8 +272,6 @@ namespace HelloWorld
             // Console.WriteLine(System.Math.Abs(-5));
             //
             // Console.WriteLine(System.Math.Round(9.99));
-
-            Strings();
         }
 
         static void Strings()
@@ -257,8 +295,6 @@ namespace HelloWorld
             // txt = "Hello, World!";
             // Console.WriteLine(txt.ToUpper()); // HELLO, WORLD!
             // Console.WriteLine(txt.ToLower()); // hello, world!
-
-            StringConcatenation();
         }
 
         static void StringConcatenation()
@@ -272,8 +308,6 @@ namespace HelloWorld
             //
             // name = string.Concat(firstName, " ", lastName);
             // Console.WriteLine("Username belike: " + name);
-
-            StringInterpolation();
         }
 
         static void StringInterpolation()
@@ -284,8 +318,6 @@ namespace HelloWorld
             // string lastName = "Minh";
             // string greet = $"Hello, World From {firstName} {lastName}";
             // Console.WriteLine(greet);
-
-            AccessStrings();
         }
 
         static void AccessStrings()
@@ -296,8 +328,6 @@ namespace HelloWorld
             // Console.WriteLine(myString[0]);
             // Console.WriteLine(myString.IndexOf("H"));
             // Console.WriteLine(myString.Substring(myString.IndexOf("e")));
-
-            SpecialCharater();
         }
 
         static void SpecialCharater()
@@ -335,8 +365,6 @@ namespace HelloWorld
             // // short version
             // string r = rand.Next() < 5 ? "Less than 5": "Greater than 5";
             // Console.WriteLine(r);
-
-            Switch();
         }
 
         static void Switch()
@@ -371,8 +399,6 @@ namespace HelloWorld
             //         Console.WriteLine("Error");
             //         break;
             // }
-
-            ForeachLoop();
         }
 
         static void ForeachLoop()
@@ -426,41 +452,109 @@ namespace HelloWorld
             //     // this will throw an error
             //     // cars = { "A", "B", "C", "D" };
             // }
-
-            SortArray();
         }
 
         static void SortArray()
         {
-            Console.WriteLine("SortArray is being called");
+            // Console.WriteLine("SortArray is being called");
+            //
+            // // sort a string
+            // string[] cars = { "D", "C", "B", "A" };
+            // Array.Sort(cars);
+            // foreach (string car in cars)
+            // {
+            //     Console.WriteLine("car in cars belike: " + car);
+            // }
+            //
+            // // sort an int
+            // int[] nums = { 3, 2, 1, 0 };
+            // Array.Sort(nums);
+            // foreach (int num in nums)
+            // {
+            //     Console.WriteLine("num in nums belike: " + num);
+            // }
+            //
+            // Console.WriteLine(nums.Max()); // 3
+            // Console.WriteLine(nums.Min()); // 0
+            // Console.WriteLine(nums.Sum()); // 6
+            //
+            // int[] n1 = { 0 }; // 1 dimension array
+            // int[,] n2 =
+            // {
+            //     { 1, 2 },
+            //     { 3, 4 }
+            // }; // 2 dimension array
+            // int[,,] n3 =
+            // {
+            //     {
+            //         { 5, 6, 7 },
+            //         { 8, 9, 10 }
+            //     },
+            //     {
+            //         { 11, 12, 13 },
+            //         { 14, 15, 16 }
+            //     }
+            // }; // 3 dimension array
+            //
+            // // access 1D array syntax
+            // Console.WriteLine(n1[0]); // 0
+            // // access 2D array syntax
+            // Console.WriteLine(n2[0, 1]); // 2
+            // // access 3D array syntax
+            // Console.WriteLine(n3[0, 1, 2]); // 14
+            //
+            // // loop through a 2D array with foreach
+            // foreach (int i in n2)
+            // {
+            //     Console.WriteLine(i); // 1, 2, 3, 4
+            // }
+            //
+            // // loop through a 2D array with for loop
+            // for (int i = 0; i < n2.GetLength(0); i++)
+            // {
+            //     for (int j = 0; j < n2.GetLength(1); j++)
+            //     {
+            //         Console.WriteLine(n2[i, j]); // 1, 2, 3, 4
+            //     }
+            // }
+        }
 
-            // sort a string
-            string[] cars = { "D", "C", "B", "A" };
-            Array.Sort(cars);
-            foreach (string car in cars)
-            {
-                Console.WriteLine("car in cars belike: " + car);
-            }
+        /*
+        MyMethod is the name
+        void mean the method have no return value
+        static means that the method belongs to the class and not an object of
+        the class
+        */
+        static void MyMethod(string extraString)
+        {
+            // code to be execute
+            Console.WriteLine("This method just got executed!" + extraString);
+        }
 
-            // sort an int
-            int[] nums = { 3, 2, 1, 0 };
-            Array.Sort(nums);
-            foreach (int num in nums)
-            {
-                Console.WriteLine("num in nums belike: " + num);
-            }
+        static void MyMethodDefault(string extraString = "default string")
+        {
+            Console.WriteLine(extraString);
+        }
 
-            Console.WriteLine(nums.Max()); // 3
-            Console.WriteLine(nums.Min()); // 0
-            Console.WriteLine(nums.Sum()); // 6
+        static int MyMethodReturnInt(int x = 10)
+        {
+            return new Random().Next(1, 10) + x;
+        }
 
-            int[] n1 = { }; // 1 dimension array
-            int[,] n2 =
-            {
-                { },
-                { }
-            }; // 2 dimension array
-            int[,,] n3 = { { { }, { } }, { { }, { } } }; // 3 dimension array
+        static void MyMethodNamedArguments(string s1, string s2, string s3)
+        {
+            Console.WriteLine(s1 + " " + s2 + " " + s3);
+        }
+
+        // ############ OVERLOAD METHODS ############
+        static int PlusMethod(int x, int y)
+        {
+            return x + y;
+        }
+
+        static double PlusMethod(double x, double y)
+        {
+            return x + y;
         }
     }
 }
