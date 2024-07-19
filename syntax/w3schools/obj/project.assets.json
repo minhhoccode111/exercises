@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/mhc/cs/practice-csharp/syntax/w3school/console-app/ConsoleApp.csproj",
+      "projectUniqueName": "/home/mhc/cs/practice-csharp/syntax/w3schools/ConsoleApp.csproj",
       "projectName": "ConsoleApp",
-      "projectPath": "/home/mhc/cs/practice-csharp/syntax/w3school/console-app/ConsoleApp.csproj",
+      "projectPath": "/home/mhc/cs/practice-csharp/syntax/w3schools/ConsoleApp.csproj",
       "packagesPath": "/home/mhc/.nuget/packages/",
-      "outputPath": "/home/mhc/cs/practice-csharp/syntax/w3school/console-app/obj/",
+      "outputPath": "/home/mhc/cs/practice-csharp/syntax/w3schools/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/mhc/.nuget/NuGet/NuGet.Config"
