@@ -14,7 +14,7 @@ create table items
     itemid int not null primary key,
     supplierid int not null,
     itemcode varchar(5) unique,
-    itemname varchar(40) not null defautl ' ',
+    itemname varchar(40) not null default ' ',
     quantity int not null default 0,
     price decimal(9, 2) check (price < 1000)
 );
