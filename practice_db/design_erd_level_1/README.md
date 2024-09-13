@@ -35,13 +35,14 @@
 - Order Status (Processing, Delivered, Canceled)
 - Payment Method
 
-**Order Details**:
+**Product Order Details**:
 
 - Order ID
+- Product ID
 - Quantity
 - Unit Price
 
-**Product Category**:
+**Category**:
 
 - Category ID
 - Category Name
@@ -63,29 +64,28 @@
 ## Business Rules to Consider
 
 - A product must belong to at least one category.
+- A product must be supplied by at least one supplier.
 - An order must contain at least one product.
 - Order status can only change according to a defined process.
 
 ## Solutions
 
-### ERD
+### Entity-Relationship Diagram
 
 <details>
-    <summary>View</summary>
+    <summary>View use Draw.io</summary>
 
 ![Preview](assets/design_erd_level_1.png)
 
 </details>
 
-### [Create Database Script](create_database.sql)
-
-### Result Database Relationship - MySQL
+### Database Creation Result in PostgreSQL
 
 <details>
-    <summary>View</summary>
+    <summary>View use DBeaver</summary>
 
 ![Preview](assets/result_database_relationship.png)
 
 </details>
 
-## Example Queries
+### [Create Database](create_database.sql) Script
