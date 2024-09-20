@@ -22,8 +22,6 @@ This code maybe terrible and buggy. It's been a few months since I've worked at 
 
 - [The Odin Project JavaScript](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript)
 
-- [Missing Semester MIT](https://missing.csail.mit.edu/) (...)
-
 - [The SQL Coursera](https://www.coursera.org/learn/the-structured-query-language-sql/home/week/1)
 
 - [Relational Database Administration Coursera](https://www.coursera.org/learn/relational-database-administration/home/module/1)

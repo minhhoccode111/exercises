@@ -1,0 +1,15 @@
+1. Tìm tên tác giả và tiêu đề sách mà họ viết
+2. Tìm các nhà xuất bản chưa xuất bản sách nào trong năm 1992
+3. Tính tổng số lượng sách của mỗi tác giả
+4. Tìm các sách có tiêu đề bắt đầu bằng chữ "The"
+5. Phân loại sách theo số lượng tác giả (sử dụng các câu lệnh điều kiện CASE WHEN)
+6. Tìm các sách có giá bán cao hơn giá bán trung bình của tất cả các sách
+7. Tìm các tác giả đã viết nhiều sách nhất
+8. Tìm các nhà xuất bản chưa xuất bản sách nào trong năm 1992
+9. Tính giá trị trung bình của các cuốn sách được xuất bản trong năm 1992
+10. Tìm các tác giả có ít nhất 2 cuốn sách được xuất bản bởi nhà xuất bản 'New Moon Books'
+11. Tìm tác giả có số lượng sách viết nhiều nhất và số lượng sách đó là bao nhiêu
+12. Tìm các nhà xuất bản có doanh thu trung bình cao hơn doanh thu trung bình của tất cả các nhà xuất bản
+13. Tìm các tác giả có ít nhất một cuốn sách được xuất bản sau năm mà họ sinh ra
+14. Tìm các sách có giá bán nằm trong top 10% cao nhất
+15. Tìm các tác giả có ít nhất 2 cuốn sách thuộc cùng một thể loại
