@@ -75,7 +75,7 @@
 <details>
     <summary>View use Draw.io</summary>
 
-![Preview](assets/design_erd_level_1.png)
+![Preview](design_erd_level_1.png)
 
 </details>
 
@@ -84,7 +84,7 @@
 <details>
     <summary>View use DBeaver</summary>
 
-![Preview](assets/result_database_relationship.png)
+![Preview](result_database_relationship.png)
 
 </details>
 
