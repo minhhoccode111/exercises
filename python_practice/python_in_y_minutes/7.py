@@ -57,3 +57,28 @@ prints:
     4
     6
 """
+for i in range(4, 8, 2):
+    print(i)
+
+"""
+Loop over a list to retrieve both the index and the value of each list item:
+    0 dog
+    1 cat
+    2 mouse
+"""
+animals = ["dog", "cat", "mouse"]
+for i, value in enumerate(animals):
+    print(i, value)
+
+"""
+While loops go until a condition is no longer met.
+prints: 
+    0
+    1
+    2
+    3
+"""
+x = 0
+while x < 4:
+    print(x)
+    x += 1  # shorthand for x = x + 1
