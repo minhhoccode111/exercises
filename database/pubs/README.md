@@ -3,7 +3,7 @@
 <details>
     <summary>Relationship</summary>
 
-![Preview](pubs_erd.png)
+![Preview](pubs-erd.png)
 
 </details>
 
